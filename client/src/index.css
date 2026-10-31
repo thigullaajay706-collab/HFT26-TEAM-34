@@ -1,0 +1,208 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-dark: #05070f;
+    --bg-card: rgba(10, 16, 32, 0.75);
+    --border-glow: rgba(0, 242, 254, 0.2);
+    --cyan-neon: #00f2fe;
+    --blue-neon: #4facfe;
+    --violet-neon: #9b51e0;
+    --emerald-neon: #00f5a0;
+    --amber-neon: #f5a623;
+    --red-neon: #ff3366;
+  }
+
+  * {
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+
+  body {
+    background-color: #05070f;
+    color: #e2e8f0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .font-heading {
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
+    letter-spacing: -0.02em;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  #root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+    border: none;
+    text-align: left;
+  }
+}
+
+/* Glassmorphism Styles */
+.glass-panel {
+  background: rgba(9, 14, 28, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.glass-card {
+  background: rgba(12, 19, 38, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.glass-card-hover {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card-hover:hover {
+  background: rgba(16, 26, 52, 0.75);
+  border-color: rgba(0, 242, 254, 0.35);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 36px -8px rgba(0, 242, 254, 0.15), 0 0 20px 0 rgba(0, 242, 254, 0.08);
+}
+
+/* Neon Borders & Glows */
+.border-neon-cyan {
+  border-color: rgba(0, 242, 254, 0.4);
+}
+.shadow-neon-cyan {
+  box-shadow: 0 0 15px rgba(0, 242, 254, 0.25), inset 0 0 15px rgba(0, 242, 254, 0.1);
+}
+
+.border-neon-violet {
+  border-color: rgba(155, 81, 224, 0.4);
+}
+.shadow-neon-violet {
+  box-shadow: 0 0 15px rgba(155, 81, 224, 0.25), inset 0 0 15px rgba(155, 81, 224, 0.1);
+}
+
+.border-neon-emerald {
+  border-color: rgba(0, 245, 160, 0.4);
+}
+.shadow-neon-emerald {
+  box-shadow: 0 0 15px rgba(0, 245, 160, 0.25), inset 0 0 15px rgba(0, 245, 160, 0.1);
+}
+
+.border-neon-red {
+  border-color: rgba(255, 51, 102, 0.4);
+}
+.shadow-neon-red {
+  box-shadow: 0 0 15px rgba(255, 51, 102, 0.25), inset 0 0 15px rgba(255, 51, 102, 0.1);
+}
+
+/* Cyber Grid & Radar background effects */
+.cyber-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+.cyber-grid-cyan {
+  background-size: 50px 50px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 242, 254, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 242, 254, 0.05) 1px, transparent 1px);
+}
+
+/* Radar scanning line */
+@keyframes radarSweep {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-radar {
+  animation: radarSweep 4s linear infinite;
+}
+
+/* Horizontal scan line */
+@keyframes scanLine {
+  0% {
+    top: -5%;
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.8;
+  }
+  85% {
+    opacity: 0.8;
+  }
+  100% {
+    top: 105%;
+    opacity: 0;
+  }
+}
+
+.animate-scanline {
+  animation: scanLine 3.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* Subtle digital pulse */
+@keyframes neonPulse {
+  0%, 100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.animate-neon-pulse {
+  animation: neonPulse 2.5s ease-in-out infinite;
+}
+
+/* Custom Sleek Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(5, 7, 15, 0.8);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 242, 254, 0.4);
+}
+
+/* Print Styles for Forensic Report */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #111827 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  .glass-card, .glass-panel {
+    background: #ffffff !important;
+    border: 1px solid #d1d5db !important;
+    box-shadow: none !important;
+    color: #111827 !important;
+  }
+  .text-slate-400, .text-slate-300, .text-cyan-400 {
+    color: #374151 !important;
+  }
+  h1, h2, h3, h4 {
+    color: #000000 !important;
+  }
+}
